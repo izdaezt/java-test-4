@@ -54,6 +54,12 @@ public class User extends AbstractAuditingEntity<Long> implements Serializable {
     @Column(length = 254, unique = true)
     private String email;
 
+    @Column(name = "score")
+    private Integer score = 0;
+
+    @Column(name = "turns")
+    private Integer turns = 0;
+
     @NotNull
     @Column(nullable = false)
     private boolean activated = false;
@@ -136,6 +142,22 @@ public class User extends AbstractAuditingEntity<Long> implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Integer getTurns() {
+        return turns;
+    }
+
+    public void setTurns(Integer turns) {
+        this.turns = turns;
     }
 
     public String getImageUrl() {
