@@ -22,7 +22,7 @@ spring:
       on-profile: '!api-docs'
 springdoc:
   api-docs:
-    enabled: false
+    enabled: true
 ---
 management:
   endpoints:
@@ -95,7 +95,7 @@ spring:
     name: InmobiJavaTest4
   docker:
     compose:
-      enabled: true
+      enabled: false
       lifecycle-management: start-only
       file: src/main/docker/services.yml
   profiles:
