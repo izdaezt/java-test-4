@@ -8,7 +8,7 @@
       "entities": {
         "main": "Thực thể",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "adminAuthority": "Authority"
+        "appConfig": "App Config"
       },
       "account": {
         "main": "Tài khoản",

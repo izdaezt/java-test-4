@@ -1,0 +1,25 @@
+{
+  "inmobiJavaTest4App": {
+    "appConfig": {
+      "home": {
+        "title": "App Configs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một App Config",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật App Config",
+        "notFound": "No App Configs found"
+      },
+      "created": "Một App Config mới được tạo với định danh {{ param }}",
+      "updated": "Một App Config cập nhật với định danh {{ param }}",
+      "deleted": "Một App Config đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa App Config {{ id }}?"
+      },
+      "detail": {
+        "title": "App Config"
+      },
+      "id": "ID",
+      "key": "Key",
+      "value": "Value"
+    }
+  }
+}

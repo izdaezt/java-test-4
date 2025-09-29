@@ -41,6 +41,7 @@ public class CacheConfiguration {
             createCache(cm, com.namnguyen.javatest4.repository.UserRepository.USERS_BY_LOGIN_CACHE);
             createCache(cm, com.namnguyen.javatest4.repository.UserRepository.USERS_BY_EMAIL_CACHE);
             createCache(cm, com.namnguyen.javatest4.domain.Authority.class.getName());
+            createCache(cm, com.namnguyen.javatest4.domain.AppConfig.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
