@@ -48,7 +48,7 @@ npm start
 ./mvnw
 ```
 
-### Hướng dẫn chạy test API
+## Hướng dẫn chạy test API
 
 Đã add file postman có thể import vào để test ('Inmobi_java_test_4.postman_collection.json')
 
@@ -60,7 +60,7 @@ npm start
 - Guess Number: POST: api/guess
 - Buy Turn: POST: api/buy-turn
 
-#### Ngoài ra đã có giao diện Web cho 1 số tác vụ:
+## Ngoài ra đã có giao diện Web cho 1 số tác vụ:
 
 - Register => http://localhost:9000/account/register
 - Login => http://localhost:9000/login
