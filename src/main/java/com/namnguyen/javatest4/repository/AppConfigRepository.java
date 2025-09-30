@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface AppConfigRepository extends JpaRepository<AppConfig, Long> {}
+public interface AppConfigRepository extends JpaRepository<AppConfig, Long> {
+    AppConfig getAppConfigByKey(String key);
+}

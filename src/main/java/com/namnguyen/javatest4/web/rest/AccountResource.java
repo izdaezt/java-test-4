@@ -205,7 +205,6 @@ public class AccountResource {
         if (currentUser == null) {
             throw new AccountResourceException("User could not be found");
         }
-
         return new UserDTO(currentUser);
     }
 }

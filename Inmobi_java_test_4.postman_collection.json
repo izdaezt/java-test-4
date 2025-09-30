@@ -1,0 +1,63 @@
+{
+  "info": {
+    "_postman_id": "74610ba7-6e32-460b-b7d0-6e05dec27a6d",
+    "name": "Inmobi_java_test_4",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9179585"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"login\": \"user5\",\r\n    \"email\": \"user5@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"langKey\": \"en\",\r\n    \"activated\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_HOST_BASE}}/register",
+              "host": ["{{API_HOST_BASE}}"],
+              "path": ["register"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "API_HOST_BASE",
+      "value": ""
+    }
+  ]
+}

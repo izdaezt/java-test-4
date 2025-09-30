@@ -20,6 +20,8 @@ export class User implements IUser {
     public firstName?: string | null,
     public lastName?: string | null,
     public email?: string,
+    public turns?: number | null,
+    public score?: number | null,
     public activated?: boolean,
     public langKey?: string,
     public authorities?: string[],

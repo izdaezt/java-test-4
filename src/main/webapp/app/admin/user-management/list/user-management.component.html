@@ -30,6 +30,8 @@
               <span jhiTranslate="userManagement.langKey">Language</span> <fa-icon icon="sort"></fa-icon>
             </th>
             <th scope="col"><span jhiTranslate="userManagement.profiles">Profiles</span></th>
+            <th scope="col" jhiSortBy="turns"><span jhiTranslate="userManagement.turns">Turns</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col" jhiSortBy="score"><span jhiTranslate="userManagement.score">Score</span> <fa-icon icon="sort"></fa-icon></th>
             <th scope="col" jhiSortBy="createdDate">
               <span jhiTranslate="userManagement.createdDate">Created date</span> <fa-icon icon="sort"></fa-icon>
             </th>
@@ -74,6 +76,8 @@
                   </div>
                 }
               </td>
+              <td>{{ user.turns }}</td>
+              <td>{{ user.score }}</td>
               <td>{{ user.createdDate | date: 'dd/MM/yy HH:mm' }}</td>
               <td>{{ user.lastModifiedBy }}</td>
               <td>{{ user.lastModifiedDate | date: 'dd/MM/yy HH:mm' }}</td>

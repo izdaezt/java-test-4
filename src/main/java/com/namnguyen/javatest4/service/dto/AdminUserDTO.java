@@ -41,6 +41,10 @@ public class AdminUserDTO implements Serializable {
     @Size(min = 2, max = 10)
     private String langKey;
 
+    private Integer turns;
+
+    private Integer score;
+
     private String createdBy;
 
     private Instant createdDate;
@@ -69,6 +73,8 @@ public class AdminUserDTO implements Serializable {
         this.lastModifiedBy = user.getLastModifiedBy();
         this.lastModifiedDate = user.getLastModifiedDate();
         this.authorities = user.getAuthorities().stream().map(Authority::getName).collect(Collectors.toSet());
+        this.turns = user.getTurns();
+        this.score = user.getScore();
     }
 
     public Long getId() {
@@ -191,6 +197,24 @@ public class AdminUserDTO implements Serializable {
             ", lastModifiedBy='" + lastModifiedBy + '\'' +
             ", lastModifiedDate=" + lastModifiedDate +
             ", authorities=" + authorities +
+            ", turns=" + turns +
+            ", score=" + score +
             "}";
+    }
+
+    public Integer getTurns() {
+        return turns;
+    }
+
+    public void setTurns(Integer turns) {
+        this.turns = turns;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }
