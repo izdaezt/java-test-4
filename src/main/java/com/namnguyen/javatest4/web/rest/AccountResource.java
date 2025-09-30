@@ -7,6 +7,7 @@ import com.namnguyen.javatest4.service.MailService;
 import com.namnguyen.javatest4.service.UserService;
 import com.namnguyen.javatest4.service.dto.AdminUserDTO;
 import com.namnguyen.javatest4.service.dto.PasswordChangeDTO;
+import com.namnguyen.javatest4.service.dto.UserDTO;
 import com.namnguyen.javatest4.web.rest.errors.*;
 import com.namnguyen.javatest4.web.rest.vm.KeyAndPasswordVM;
 import com.namnguyen.javatest4.web.rest.vm.ManagedUserVM;
@@ -89,6 +90,14 @@ public class AccountResource {
         return userService
             .getUserWithAuthorities()
             .map(AdminUserDTO::new)
+            .orElseThrow(() -> new AccountResourceException("User could not be found"));
+    }
+
+    @GetMapping("/me")
+    public UserDTO getUserInfo() {
+        return userService
+            .getUserWithAuthorities()
+            .map(UserDTO::new)
             .orElseThrow(() -> new AccountResourceException("User could not be found"));
     }
 
@@ -176,5 +185,27 @@ public class AccountResource {
             password.length() < ManagedUserVM.PASSWORD_MIN_LENGTH ||
             password.length() > ManagedUserVM.PASSWORD_MAX_LENGTH
         );
+    }
+
+    @GetMapping(path = "/leader-board")
+    public List<UserDTO> getLeaderBoard() {
+        List<User> topUsers = userService.getTop10UsersByScore();
+        if (topUsers.isEmpty()) {
+            throw new AccountResourceException("No users found for leaderboard");
+        }
+
+        return topUsers.stream().map(UserDTO::new).toList();
+    }
+
+    @PostMapping(path = "/buy-turn")
+    public UserDTO buyTurn() {
+        //set default add 5 turns
+        int turnToAdd = 5;
+        User currentUser = userService.addTurnsToCurrentUser(turnToAdd);
+        if (currentUser == null) {
+            throw new AccountResourceException("User could not be found");
+        }
+
+        return new UserDTO(currentUser);
     }
 }

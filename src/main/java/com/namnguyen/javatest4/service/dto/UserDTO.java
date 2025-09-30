@@ -15,6 +15,12 @@ public class UserDTO implements Serializable {
 
     private String login;
 
+    private String email;
+
+    private Integer turns;
+
+    private Integer score;
+
     public UserDTO() {
         // Empty constructor needed for Jackson.
     }
@@ -23,6 +29,9 @@ public class UserDTO implements Serializable {
         this.id = user.getId();
         // Customize it here if you need, or not, firstName/lastName/etc
         this.login = user.getLogin();
+        this.email = user.getEmail();
+        this.turns = user.getTurns();
+        this.score = user.getScore();
     }
 
     public Long getId() {
@@ -39,6 +48,30 @@ public class UserDTO implements Serializable {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getTurns() {
+        return turns;
+    }
+
+    public void setTurns(Integer turns) {
+        this.turns = turns;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setId(Integer score) {
+        this.score = score;
     }
 
     @Override

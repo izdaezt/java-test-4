@@ -122,10 +122,11 @@ public class UserService {
         }
         newUser.setImageUrl(userDTO.getImageUrl());
         newUser.setLangKey(userDTO.getLangKey());
-        // new user is not active
-        newUser.setActivated(false);
-        // new user gets registration key
-        newUser.setActivationKey(RandomUtil.generateActivationKey());
+        newUser.setActivated(userDTO.isActivated());
+        //        // new user is not active
+        //        newUser.setActivated(false);
+        //        // new user gets registration key
+        //        newUser.setActivationKey(RandomUtil.generateActivationKey());
         Set<Authority> authorities = new HashSet<>();
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
@@ -320,5 +321,32 @@ public class UserService {
         if (user.getEmail() != null) {
             Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE)).evictIfPresent(user.getEmail());
         }
+    }
+
+    /**
+     * return top 10 user with most score
+     * @return list user
+     */
+    public List<User> getTop10UsersByScore() {
+        return userRepository.findTop10ByOrderByScoreDesc();
+    }
+
+    /**
+     * add tủn to current user
+     * @param turnsToAdd turns To Add
+     * @return user
+     */
+    public User addTurnsToCurrentUser(int turnsToAdd) {
+        String login = SecurityUtils.getCurrentUserLogin().orElseThrow(() -> new IllegalStateException("No current user found"));
+
+        User user = userRepository.findOneByLogin(login).orElseThrow(() -> new IllegalStateException("User not found"));
+
+        int currentTurn = user.getTurns() != null ? user.getTurns() : 0;
+        user.setTurns(currentTurn + turnsToAdd);
+
+        userRepository.save(user);
+        LOG.debug("Added {} turns to user {}. New total: {}", turnsToAdd, login, user.getTurns());
+
+        return user;
     }
 }
